@@ -1,0 +1,20 @@
+bin
+logs
+
+# Created by https://www.toptal.com/developers/gitignore/api/code,nim
+# Edit at https://www.toptal.com/developers/gitignore?templates=code,nim
+
+### Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+### Nim ###
+nimcache/
+nimblecache/
+htmldocs/
+
+# End of https://www.toptal.com/developers/gitignore/api/code,nim

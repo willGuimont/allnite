@@ -1,0 +1,28 @@
+{
+    "logDir": "logs",
+    "runs": [
+        {
+            "name": "test1",
+            "executable": "sleep 2; echo \"test1\"",
+            "parameters": [],
+            "redirectLog": true
+        },
+        {
+            "name": "test2",
+            "executable": "echo hello; sleep 2; echo bye",
+            "parameters": [],
+            "redirectLog": true
+        },
+        {
+            "name": "test3",
+            "executable": "echo",
+            "parameters": [
+                {
+                    "name": "",
+                    "value": "bye bye"
+                }
+            ],
+            "redirectLog": true
+        }
+    ]
+}
