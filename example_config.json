@@ -4,28 +4,28 @@
         {
             "name": "test1",
             "executable": "sleep 2; echo \"test1\"",
-            "parameters": [],
+            "arguments": [],
             "redirectLog": true
         },
         {
             "name": "test2",
             "executable": "echo hello; sleep 2; echo bye",
-            "parameters": [],
+            "arguments": [],
             "redirectLog": true
         },
         {
             "name": "test3",
             "executable": "ls",
-            "parameters": [
+            "arguments": [
                 {
                     "name": "all",
                     "value": "",
-                    "paramType": "long"
+                    "argType": "long"
                 },
                 {
                     "name": "l",
                     "value": "",
-                    "paramType": "short"
+                    "argType": "short"
                 }
             ],
             "redirectLog": true

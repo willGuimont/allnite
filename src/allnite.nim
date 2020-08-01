@@ -4,14 +4,14 @@ import strutils
 
 
 type
-    Parameter = object
+    Argument = object
         name      : string
         value     : string
-        paramType : string
+        argType : string
     Execution = object
         name        : string
         executable  : string
-        parameters  : seq[Parameter]
+        arguments  : seq[Argument]
         redirectLog : bool
     Runs = object
         logDir : string
@@ -35,15 +35,15 @@ when isMainModule:
         echo "[$1/$2] Running $3..." % [$(i + 1), $len(runs.runs), run.name]
         var cmd = run.executable;
 
-        for param in run.parameters:
-            if param.name != "":
+        for arg in run.arguments:
+            if arg.name != "":
                 var dash = "";
-                if param.paramType == "short":
+                if arg.argType == "short":
                     dash = "-"
-                elif param.paramType == "long":
+                elif arg.argType == "long":
                     dash = "--"
-                cmd = cmd & " $1$2" % [dash, param.name] 
-            cmd = cmd & " " & param.value
+                cmd = cmd & " $1$2" % [dash, arg.name] 
+            cmd = cmd & " " & arg.value
         
         if run.redirectLog:
             cmd = "($1) > $2/$3" % [cmd, runs.logDir, run.name]
