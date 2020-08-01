@@ -15,11 +15,17 @@
         },
         {
             "name": "test3",
-            "executable": "echo",
+            "executable": "ls",
             "parameters": [
                 {
-                    "name": "",
-                    "value": "bye bye"
+                    "name": "all",
+                    "value": "",
+                    "paramType": "long"
+                },
+                {
+                    "name": "l",
+                    "value": "",
+                    "paramType": "short"
                 }
             ],
             "redirectLog": true

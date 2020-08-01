@@ -1,14 +1,13 @@
-import lists
 import os
 import json
 import strutils
-import parseopt2
 
 
 type
     Parameter = object
-        name  : string
-        value : string
+        name      : string
+        value     : string
+        paramType : string
     Execution = object
         name        : string
         executable  : string
@@ -20,8 +19,6 @@ type
 
 
 when isMainModule:
-    import parseopt
-
     if paramCount() != 1:
         echo "Expected: allnite <path/run/config>"
         quit(1)
@@ -35,12 +32,17 @@ when isMainModule:
     createDir(runs.logDir)
 
     for i, run in runs.runs:
-        echo "[$1/$1] Running $3..." % [$(i + 1), $len(runs.runs), run.name]
+        echo "[$1/$2] Running $3..." % [$(i + 1), $len(runs.runs), run.name]
         var cmd = run.executable;
 
         for param in run.parameters:
             if param.name != "":
-                cmd = cmd & " --$1" % [param.name] 
+                var dash = "";
+                if param.paramType == "short":
+                    dash = "-"
+                elif param.paramType == "long":
+                    dash = "--"
+                cmd = cmd & " $1$2" % [dash, param.name] 
             cmd = cmd & " " & param.value
         
         if run.redirectLog:
