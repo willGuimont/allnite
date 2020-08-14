@@ -7,14 +7,14 @@ type
     Argument = object
         name      : string
         value     : string
-        argType : string
+        argType   : string
     Execution = object
         name        : string
         executable  : string
-        arguments  : seq[Argument]
+        arguments   : seq[Argument]
         redirectLog : bool
     Runs = object
-        logDir : string
+        logDir  : string
         runs    : seq[Execution]
 
 
